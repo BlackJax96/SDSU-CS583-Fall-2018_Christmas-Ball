@@ -3,13 +3,15 @@
 public class StageController : MonoBehaviour
 {
     [Range(0.0f, 90.0f)]
-    public float _maxPitchDeg = 45.0f;
+    public float _maxPitchDeg = 30.0f;
     [Range(0.0f, 90.0f)]
-    public float _maxRollDeg = 45.0f;
+    public float _maxRollDeg = 30.0f;
     [Range(0.01f, 200.0f)]
-    public float _movementStrength = 0.09f;
-    
-    private Camera _camera;
+    public float _interpSpeed = 2.0f;
+    public GameObject _playerBall;
+    public Camera _camera;
+
+    private Quaternion _targetRotation;
 
     void Start()
     {
@@ -17,39 +19,33 @@ public class StageController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         //The camera with the MainCamera tag will be used for relative rotations
-        _camera = Camera.main;
+        //_camera = Camera.main;
     }
 	void FixedUpdate()
     {
-        //Retrieve mouse movement
-        Vector2 mouseDelta = new Vector2(
-            Input.GetAxis("Mouse X") * Time.fixedDeltaTime * _movementStrength,
-            Input.GetAxis("Mouse Y") * Time.fixedDeltaTime * _movementStrength);
+        float forwardStrength = Input.GetKey(KeyCode.W) ? 1.0f : 0.0f;
+        float backwardStrength = Input.GetKey(KeyCode.S) ? -1.0f : 0.0f;
+        float rightStrength = Input.GetKey(KeyCode.D) ? 1.0f : 0.0f;
+        float leftStrength = Input.GetKey(KeyCode.A) ? -1.0f : 0.0f;
 
-        float pitchDelta = mouseDelta.y;
-        float rollDelta = -mouseDelta.x;
+        float lr = leftStrength + rightStrength;
+        float fb = forwardStrength + backwardStrength;
+        
+        float pitchDelta = fb * _maxPitchDeg;
+        float rollDelta = -lr * _maxRollDeg;
 
-        //Only do anything if the mouse has moved enough
-        if (Mathf.Abs(pitchDelta) + Mathf.Abs(rollDelta) > 0.01f)
-        {
-            //Create delta rotations in camera local space
-            Quaternion delta = Quaternion.Euler(pitchDelta, 0.0f, rollDelta);
+        //Create delta rotations in camera local space
+        Quaternion targetPitchRoll = Quaternion.Euler(pitchDelta, 0.0f, rollDelta);
 
-            //Rotate local up vector by delta
-            //We use the up direction because up is affected by both pitch and roll.
-            Vector3 localUpVec = delta * Vector3.up;
+        Vector3 camForward = _camera.transform.forward;
+        camForward.y = 0.0f;
+        camForward.Normalize();
+        Quaternion camYaw = Quaternion.FromToRotation(Vector3.forward, camForward);
+        
+        _targetRotation = camYaw * targetPitchRoll;
 
-            //Transform camera local up delta vector to world space up delta vector
-            Vector3 worldUpVec = _camera.transform.TransformDirection(localUpVec);
-
-            //Create rotation from real camera world up vector to calculated world up vector
-            Quaternion worldDeltaRot = Quaternion.FromToRotation(_camera.transform.up, worldUpVec);
-
-            //Apply new world delta rotation to the current world rotation
-            Quaternion rotation = transform.rotation * worldDeltaRot;
-
-            //TODO: clamp rotation using max pitch and roll deg vars
-            transform.rotation = rotation;
-        }
+        Quaternion rot = Quaternion.Slerp(transform.rotation, _targetRotation, Time.fixedDeltaTime * _interpSpeed);
+        transform.position = _playerBall.transform.position + (rot * (-_playerBall.transform.position));
+        transform.rotation = rot;
     }
 }
