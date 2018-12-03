@@ -25,7 +25,7 @@ public class CameraFollow : MonoBehaviour
         Rigidbody ballBody = parentBall.GetComponent<Rigidbody>();
         Vector3 velocity = ballBody.velocity;
         Quaternion dir = _lastBallDir;
-        
+
         //Can't call Quaternion.LookRotation on a zero vector (when not moving, velocity is 0)
         if (velocity.sqrMagnitude > _realVelocityUpdateThreshold)
         {
@@ -35,7 +35,7 @@ public class CameraFollow : MonoBehaviour
             dir = Quaternion.LookRotation(vel, Vector3.up);
 
             //Jumping to the velocity rotation is too jarring
-            dir = Quaternion.Lerp(_lastBallDir, dir, _rotationSlerpSpeed * Time.deltaTime);
+            dir = Quaternion.Slerp(_lastBallDir, dir, _rotationSlerpSpeed * Time.deltaTime);
 
             _lastBallDir = dir;
         }

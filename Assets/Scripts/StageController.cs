@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class StageController : MonoBehaviour
 {
@@ -23,26 +23,32 @@ public class StageController : MonoBehaviour
     }
 	void FixedUpdate()
     {
-        float forwardStrength = Input.GetKey(KeyCode.W) ? 1.0f : 0.0f;
-        float backwardStrength = Input.GetKey(KeyCode.S) ? -1.0f : 0.0f;
-        float rightStrength = Input.GetKey(KeyCode.D) ? 1.0f : 0.0f;
-        float leftStrength = Input.GetKey(KeyCode.A) ? -1.0f : 0.0f;
+        float forwardStrength   = Input.GetKey(KeyCode.W) ?  1.0f : 0.0f;
+        float backwardStrength  = Input.GetKey(KeyCode.S) ? -1.0f : 0.0f;
+        float rightStrength     = Input.GetKey(KeyCode.D) ?  1.0f : 0.0f;
+        float leftStrength      = Input.GetKey(KeyCode.A) ? -1.0f : 0.0f;
 
         float lr = leftStrength + rightStrength;
         float fb = forwardStrength + backwardStrength;
         
         float pitchDelta = fb * _maxPitchDeg;
         float rollDelta = -lr * _maxRollDeg;
-
-        //Create delta rotations in camera local space
-        Quaternion targetPitchRoll = Quaternion.Euler(pitchDelta, 0.0f, rollDelta);
-
-        Vector3 camForward = _camera.transform.forward;
-        camForward.y = 0.0f;
-        camForward.Normalize();
-        Quaternion camYaw = Quaternion.FromToRotation(Vector3.forward, camForward);
         
-        _targetRotation = camYaw * targetPitchRoll;
+        Vector3 camForwardDir = _camera.transform.forward.normalized;
+        Vector3 camRightDir = _camera.transform.right.normalized;
+        camForwardDir.y = 0.0f;
+        camForwardDir = camForwardDir.normalized;
+        
+        Quaternion pitchRot = Quaternion.AngleAxis(pitchDelta, camRightDir);
+        Quaternion rollRot = Quaternion.AngleAxis(rollDelta, camForwardDir);
+        
+        Vector3 rotatedCamForwardDir = pitchRot * camForwardDir; //Rotate camera forward by pitch
+        Vector3 rotatedCamRightDir = rollRot * camRightDir; //Rotate camera right by roll
+        Vector3 rotatedUpDir = Vector3.Cross(rotatedCamForwardDir.normalized, rotatedCamRightDir.normalized);
+        
+        Quaternion worldRot = Quaternion.FromToRotation(Vector3.up, rotatedUpDir.normalized);
+        
+        _targetRotation = worldRot;
 
         Quaternion rot = Quaternion.Slerp(transform.rotation, _targetRotation, Time.fixedDeltaTime * _interpSpeed);
         transform.position = _playerBall.transform.position + (rot * (-_playerBall.transform.position));
