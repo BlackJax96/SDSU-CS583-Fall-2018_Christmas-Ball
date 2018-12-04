@@ -422,6 +422,16 @@ Prefab:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 631496467}
+    - target: {fileID: 114031357950451776, guid: 92b170b9042b71448a08c9c8201ac6b3,
+        type: 2}
+      propertyPath: _flyAwaySpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114031357950451776, guid: 92b170b9042b71448a08c9c8201ac6b3,
+        type: 2}
+      propertyPath: _flyAwayHeight
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b170b9042b71448a08c9c8201ac6b3, type: 2}
   m_IsPrefabAsset: 0
@@ -434,7 +444,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4998825377925510, guid: 29229a5b71a26b442be164e5effd9f02, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.11
+      value: -0.55
       objectReference: {fileID: 0}
     - target: {fileID: 4998825377925510, guid: 29229a5b71a26b442be164e5effd9f02, type: 2}
       propertyPath: m_LocalPosition.y
@@ -442,7 +452,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4998825377925510, guid: 29229a5b71a26b442be164e5effd9f02, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3.38
+      value: -10.63
       objectReference: {fileID: 0}
     - target: {fileID: 4998825377925510, guid: 29229a5b71a26b442be164e5effd9f02, type: 2}
       propertyPath: m_LocalRotation.x
