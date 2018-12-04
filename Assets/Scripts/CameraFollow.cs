@@ -21,6 +21,9 @@ public class CameraFollow : MonoBehaviour
     }
     private void Update()
     {
+        if (transform.parent?.gameObject == null)
+            return;
+
         GameObject parentBall = transform.parent.gameObject;
         Rigidbody ballBody = parentBall.GetComponent<Rigidbody>();
         Vector3 velocity = ballBody.velocity;

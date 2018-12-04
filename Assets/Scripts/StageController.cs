@@ -12,6 +12,7 @@ public class StageController : MonoBehaviour
     public Camera _camera;
 
     private Quaternion _targetRotation;
+    private Vector3 _targetPosition;
 
     void Start()
     {
@@ -47,11 +48,14 @@ public class StageController : MonoBehaviour
         Vector3 rotatedUpDir = Vector3.Cross(rotatedCamForwardDir.normalized, rotatedCamRightDir.normalized);
         
         Quaternion worldRot = Quaternion.FromToRotation(Vector3.up, rotatedUpDir.normalized);
-        
-        _targetRotation = worldRot;
 
-        Quaternion rot = Quaternion.Slerp(transform.rotation, _targetRotation, Time.fixedDeltaTime * _interpSpeed);
-        transform.position = _playerBall.transform.position + (rot * (-_playerBall.transform.position));
+        float time = Time.fixedDeltaTime * _interpSpeed;
+        Quaternion rot = Quaternion.Slerp(transform.rotation, _targetRotation, time);
+
+        _targetRotation = worldRot;
+        _targetPosition = _playerBall.transform.position + (rot * (-_playerBall.transform.position));
+
+        transform.position = Vector3.Lerp(transform.position, _targetPosition, 1.0f);
         transform.rotation = rot;
     }
 }
