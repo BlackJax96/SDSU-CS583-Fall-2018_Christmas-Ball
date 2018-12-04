@@ -62,11 +62,7 @@ public class GoalTrigger : MonoBehaviour
                     _countdownSeconds = 0.0f;
                     _stopTick = true;
                     if (!string.IsNullOrWhiteSpace(_onFailedSceneName))
-                    {
-                        Scene failed = SceneManager.GetSceneByName(_onFailedSceneName);
-                        if (failed != null)
-                            SceneManager.SetActiveScene(failed);
-                    }
+                        SceneManager.LoadScene(_onFailedSceneName);
                     return;
                 }
                 float mins = _countdownSeconds / 60.0f;
@@ -81,11 +77,7 @@ public class GoalTrigger : MonoBehaviour
             {
                 _stopTick = true;
                 if (!string.IsNullOrWhiteSpace(_onSuccessSceneName))
-                {
-                    Scene success = SceneManager.GetSceneByName(_onSuccessSceneName);
-                    if (success != null)
-                        SceneManager.SetActiveScene(success);
-                }
+                    SceneManager.LoadScene(_onSuccessSceneName);
                 return;
             }
 

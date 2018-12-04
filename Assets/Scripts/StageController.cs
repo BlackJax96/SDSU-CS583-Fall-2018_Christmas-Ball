@@ -24,13 +24,13 @@ public class StageController : MonoBehaviour
     }
 	void FixedUpdate()
     {
-        float forwardStrength   = Input.GetKey(KeyCode.W) ?  1.0f : 0.0f;
-        float backwardStrength  = Input.GetKey(KeyCode.S) ? -1.0f : 0.0f;
-        float rightStrength     = Input.GetKey(KeyCode.D) ?  1.0f : 0.0f;
-        float leftStrength      = Input.GetKey(KeyCode.A) ? -1.0f : 0.0f;
+        //float forwardStrength   = Input.GetKey(KeyCode.W) ?  1.0f : 0.0f;
+        //float backwardStrength  = Input.GetKey(KeyCode.S) ? -1.0f : 0.0f;
+        //float rightStrength     = Input.GetKey(KeyCode.D) ?  1.0f : 0.0f;
+        //float leftStrength      = Input.GetKey(KeyCode.A) ? -1.0f : 0.0f;
 
-        float lr = leftStrength + rightStrength;
-        float fb = forwardStrength + backwardStrength;
+        float lr = Input.GetAxis("Horizontal");//leftStrength + rightStrength;
+        float fb = Input.GetAxis("Vertical");//forwardStrength + backwardStrength;
         
         float pitchDelta = fb * _maxPitchDeg;
         float rollDelta = -lr * _maxRollDeg;

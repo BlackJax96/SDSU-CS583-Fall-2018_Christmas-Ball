@@ -329,12 +329,12 @@ Prefab:
     - target: {fileID: 114484269691995222, guid: 6a43c0b7d2b5a0b448037ff935386289,
         type: 2}
       propertyPath: _maxPitchDeg
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 114484269691995222, guid: 6a43c0b7d2b5a0b448037ff935386289,
         type: 2}
       propertyPath: _maxRollDeg
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 114484269691995222, guid: 6a43c0b7d2b5a0b448037ff935386289,
         type: 2}
