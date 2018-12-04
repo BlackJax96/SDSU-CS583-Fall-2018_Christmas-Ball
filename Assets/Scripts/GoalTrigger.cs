@@ -14,12 +14,16 @@ public class GoalTrigger : MonoBehaviour
     public string _onFailedSceneName;
     public string _onSuccessSceneName;
 
+    private bool _stopTick = false;
     private bool _finished = false;
     private float _flyAwayTime = 0.0f;
     private float _startY;
     private float _endY;
-    private bool _stopTick = false;
-    
+
+    private void Start()
+    {
+
+    }
     private void OnTriggerEnter(Collider other)
     {
         
@@ -60,16 +64,18 @@ public class GoalTrigger : MonoBehaviour
                     if (!string.IsNullOrWhiteSpace(_onFailedSceneName))
                     {
                         Scene failed = SceneManager.GetSceneByName(_onFailedSceneName);
-                        SceneManager.SetActiveScene(failed);
+                        if (failed != null)
+                            SceneManager.SetActiveScene(failed);
                     }
                     return;
                 }
-                _countdownText.text = TimeSpan.FromSeconds(_countdownSeconds).ToString("mm:ss");
+                float mins = _countdownSeconds / 60.0f;
+                float sec = _countdownSeconds % 60;
+                _countdownText.text = string.Format("{0:00}:{1:00}", mins, sec);
             }
         }
         else
         {
-            Vector3 pos = _playerBall.transform.position;
             float time = Mathf.Pow((_flyAwayTime += Time.deltaTime) * _flyAwaySpeed, 4.0f);
             if (time >= 1.0f)
             {
@@ -77,13 +83,18 @@ public class GoalTrigger : MonoBehaviour
                 if (!string.IsNullOrWhiteSpace(_onSuccessSceneName))
                 {
                     Scene success = SceneManager.GetSceneByName(_onSuccessSceneName);
-                    SceneManager.SetActiveScene(success);
+                    if (success != null)
+                        SceneManager.SetActiveScene(success);
                 }
                 return;
             }
+
+            Vector3 pos = _playerBall.transform.position;
             pos.y = _startY + (_endY - _startY) * time;
             _playerBall.transform.position = pos;
-            _camera.transform.rotation = Quaternion.LookRotation(_playerBall.transform.position - _camera.transform.position, Vector3.up);
+
+            Quaternion targetRot = Quaternion.LookRotation(_playerBall.transform.position - _camera.transform.position, Vector3.up);
+            _camera.transform.rotation = Quaternion.Slerp(_camera.transform.rotation, targetRot, Time.deltaTime * 10.0f);
         }
     }
 }
