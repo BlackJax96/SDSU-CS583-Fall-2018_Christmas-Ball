@@ -6,7 +6,7 @@ public class SpeedRamp : MonoBehaviour {
 
     public float power;
     public Rigidbody rigidBody;
-    private GameObject ball; 
+    private GameObject ball;
 
 	void Start ()
     {
@@ -19,8 +19,7 @@ public class SpeedRamp : MonoBehaviour {
     {
         if (impact.CompareTag("PlayerBall"))
         {
-            print("ramp");
-            rigidBody.AddForce(transform.forward * power);
+            rigidBody.AddForce(Vector3.forward * power);
         }
     }
  
