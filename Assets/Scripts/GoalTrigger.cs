@@ -65,8 +65,9 @@ public class GoalTrigger : MonoBehaviour
                         SceneManager.LoadScene(_onFailedSceneName);
                     return;
                 }
-                float mins = _countdownSeconds / 60.0f;
-                float sec = _countdownSeconds % 60;
+                int integerSec = (int)Math.Floor(_countdownSeconds);
+                float mins = integerSec / 60.0f;
+                float sec = integerSec % 60;
                 _countdownText.text = string.Format("{0:00}:{1:00}", mins, sec);
             }
         }

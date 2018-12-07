@@ -19,7 +19,7 @@ public class SpeedRamp : MonoBehaviour {
     {
         if (impact.CompareTag("PlayerBall"))
         {
-            rigidBody.AddForce(Vector3.forward * power);
+            rigidBody.AddForce(transform.forward * power);
         }
     }
  
