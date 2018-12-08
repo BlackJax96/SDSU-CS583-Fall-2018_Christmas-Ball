@@ -10,7 +10,6 @@ public class SpeedRamp : MonoBehaviour {
 
 	void Start ()
     {
-        gameObject.GetComponent<Renderer>().material.color = Color.green;
         ball = GameObject.FindGameObjectWithTag("PlayerBall");
         rigidBody = ball. GetComponent<Rigidbody>();
     }
