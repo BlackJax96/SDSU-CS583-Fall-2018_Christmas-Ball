@@ -36,6 +36,7 @@ public class GrabCollectables : MonoBehaviour {
         if (impact.gameObject.tag.Equals("PlayerBall"))
         {
             Destroy(present);
+            PresentCounter.presentNum += 1;
         }
     }
 }
