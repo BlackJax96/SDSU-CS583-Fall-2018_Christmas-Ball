@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PresentCounter : MonoBehaviour {
-
+public class PresentCounter : MonoBehaviour
+{
     public Text textBoxToEdit; 
     public static int presentNum; 
 	
@@ -14,7 +14,8 @@ public class PresentCounter : MonoBehaviour {
     }
 
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         textBoxToEdit.text = "x " + presentNum.ToString();
 	}
 }

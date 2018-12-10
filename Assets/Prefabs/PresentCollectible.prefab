@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33265767013837806}
   - component: {fileID: 23537059925930418}
   - component: {fileID: 64426107657548452}
+  - component: {fileID: 114030853959147414}
   m_Layer: 0
   m_Name: 'present '
   m_TagString: PresentCollectable
@@ -52,7 +53,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4870811491929570}
-  - component: {fileID: 114033411357461114}
   - component: {fileID: 65041232147388426}
   m_Layer: 0
   m_Name: PresentCollectible
@@ -170,19 +170,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.54897904, y: 1.3294287, z: 0.49914503}
   m_Center: {x: 0.050930858, y: 0.102339745, z: 0.014071226}
---- !u!114 &114033411357461114
+--- !u!114 &114030853959147414
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1604098877892720}
+  m_GameObject: {fileID: 1127141390626576}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3a9c7fddaeca244684c8b499bdc7111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  present: {fileID: 1127141390626576}
-  axis: {fileID: 1210619296143060}
-  spinSpeed: 70
+  spinSpeed: 50
+  heightOffset: 0.2
   amplitude: 0.2
   frequency: 0.4
