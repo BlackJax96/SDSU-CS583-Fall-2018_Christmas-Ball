@@ -10,12 +10,12 @@ public class GrabCollectables : MonoBehaviour {
 
     public float amplitude = 0.2f;
     public float frequency = 0.4f;
-    Vector3 tmp = new Vector3();
-    Vector3 postOffset = new Vector3();
+    //Vector3 tmp = new Vector3();
+    //Vector3 postOffset = new Vector3();
 
     
     void Start () {
-        postOffset = transform.position;
+        //postOffset = transform.position;
 	}
 	
 	void Update () {
