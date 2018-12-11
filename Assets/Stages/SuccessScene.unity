@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -167,7 +167,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: You failed to save Christmas!
+  m_text: "You did it! \nYou brought holiday cheer to those far and near!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9d187b0b2fff50c428edb5fdc909162b, type: 2}
   m_sharedMaterial: {fileID: 21617211296156980, guid: 9d187b0b2fff50c428edb5fdc909162b,
@@ -177,8 +177,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 13
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -236,12 +236,12 @@ MonoBehaviour:
   m_margin: {x: -1.9074875, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 29
+    characterCount: 61
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 5
+    spaceCount: 12
+    wordCount: 12
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 182800520}
   - component: {fileID: 182800522}
   m_Layer: 5
-  m_Name: FailMenu
+  m_Name: SuccessMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 865981008}
   - component: {fileID: 865981007}
   m_Layer: 5
-  m_Name: SantaCrying
+  m_Name: SantaLaughing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -515,8 +515,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -267, y: 23}
-  m_SizeDelta: {x: -1507.5, y: -667.5}
+  m_AnchoredPosition: {x: -264.7, y: 25.3}
+  m_SizeDelta: {x: -1373.7, y: -533.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &865981007
 MonoBehaviour:
@@ -537,7 +537,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: fc9d88743929c6849ae6ff5c8db79d3f, type: 3}
+  m_Texture: {fileID: 2800000, guid: b9ab92908711ff34b8bd4ce59233aae2, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 1128745033}
   - component: {fileID: 1128745032}
   m_Layer: 5
-  m_Name: RetryButton
+  m_Name: NextLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -662,8 +662,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -458, y: -304}
-  m_SizeDelta: {x: 207.54004, y: 102.34}
+  m_AnchoredPosition: {x: -371, y: -305}
+  m_SizeDelta: {x: 431.3, y: 102.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1128745032
 MonoBehaviour:
@@ -909,8 +909,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279828735
-  m_fontColor: {r: 1, g: 0, b: 0.0992074, a: 1}
+    rgba: 4294831362
+  m_fontColor: {r: 0.007843138, g: 0.9294118, b: 0.9921569, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -1033,8 +1033,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.002494812, y: 0.0025024414}
-  m_SizeDelta: {x: 0.0050049, y: 0.0049896}
+  m_AnchoredPosition: {x: -0.024993896, y: 0.0025024414}
+  m_SizeDelta: {x: 0.050018, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1379589743
 MonoBehaviour:
@@ -1055,7 +1055,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Retry
+  m_text: Next Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9d187b0b2fff50c428edb5fdc909162b, type: 2}
   m_sharedMaterial: {fileID: 21617211296156980, guid: 9d187b0b2fff50c428edb5fdc909162b,
@@ -1065,8 +1065,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279828735
-  m_fontColor: {r: 1, g: 0, b: 0.0992074, a: 1}
+    rgba: 4294962944
+  m_fontColor: {r: 0, g: 0.93976927, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -1124,10 +1124,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1379589743}
-    characterCount: 5
+    characterCount: 10
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -1191,7 +1191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 567, y: -439}
+  m_AnchoredPosition: {x: 567, y: -438}
   m_SizeDelta: {x: 750.6, y: 99.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1813915796
@@ -1291,7 +1291,7 @@ GameObject:
   - component: {fileID: 2083436088}
   - component: {fileID: 2083436087}
   m_Layer: 5
-  m_Name: MainMenuBackground
+  m_Name: SuccessBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1334,7 +1334,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: b3850447f5979454f8e67d913a1ff175, type: 3}
+  m_Texture: {fileID: 2800000, guid: 146ce8291720ba5448d968dd6a9df618, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
