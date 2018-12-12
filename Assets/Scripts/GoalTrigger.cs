@@ -62,7 +62,10 @@ public class GoalTrigger : MonoBehaviour
                     _countdownSeconds = 0.0f;
                     _stopTick = true;
                     if (!string.IsNullOrWhiteSpace(_onFailedSceneName))
+                    {
+                        Cursor.lockState = CursorLockMode.None;
                         SceneManager.LoadScene(_onFailedSceneName);
+                    }
                     return;
                 }
                 int integerSec = (int)Math.Floor(_countdownSeconds);
@@ -78,7 +81,10 @@ public class GoalTrigger : MonoBehaviour
             {
                 _stopTick = true;
                 if (!string.IsNullOrWhiteSpace(_onSuccessSceneName))
+                {
+                    Cursor.lockState = CursorLockMode.None;
                     SceneManager.LoadScene(_onSuccessSceneName);
+                }
                 return;
             }
 

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedRamp : MonoBehaviour {
-
+public class SpeedRamp : MonoBehaviour
+{
     public float power;
     public Rigidbody rigidBody;
     private GameObject ball;
@@ -18,6 +18,7 @@ public class SpeedRamp : MonoBehaviour {
     {
         if (impact.CompareTag("PlayerBall"))
         {
+            rigidBody.velocity = Vector3.zero;
             rigidBody.AddForce(transform.forward * power);
         }
     }

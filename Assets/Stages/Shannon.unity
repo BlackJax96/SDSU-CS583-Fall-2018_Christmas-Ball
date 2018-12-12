@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44726193, g: 0.4925756, b: 0.55039185, a: 1}
+  m_IndirectSpecularColor: {r: 0.4472624, g: 0.49257606, b: 0.5503926, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2641,6 +2641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yValueToRestart: -65
+  sceneToLoad: 
 --- !u!4 &744756086
 Transform:
   m_ObjectHideFlags: 0
@@ -3712,68 +3713,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &1065097469
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 5427ae6c4afe9b44892cd95ebe3e6781, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5427ae6c4afe9b44892cd95ebe3e6781, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -216.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5427ae6c4afe9b44892cd95ebe3e6781, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -31.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5427ae6c4afe9b44892cd95ebe3e6781, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.70710677
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5427ae6c4afe9b44892cd95ebe3e6781, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5427ae6c4afe9b44892cd95ebe3e6781, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5427ae6c4afe9b44892cd95ebe3e6781, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5427ae6c4afe9b44892cd95ebe3e6781, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5427ae6c4afe9b44892cd95ebe3e6781, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5427ae6c4afe9b44892cd95ebe3e6781, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5427ae6c4afe9b44892cd95ebe3e6781, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 101.25001
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 5427ae6c4afe9b44892cd95ebe3e6781, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3f0c1231ec9e80f4da4ef7557318e695, type: 2}
-    - target: {fileID: 100000, guid: 5427ae6c4afe9b44892cd95ebe3e6781, type: 3}
-      propertyPath: m_Name
-      value: Skyball_WithCap (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5427ae6c4afe9b44892cd95ebe3e6781, type: 3}
-  m_IsPrefabAsset: 0
 --- !u!4 &1069740693 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4870811491929570, guid: 9fcff100bab295a4080ba13a654d5184,
@@ -6320,7 +6259,7 @@ Prefab:
     - target: {fileID: 54532619442021164, guid: 29229a5b71a26b442be164e5effd9f02,
         type: 2}
       propertyPath: m_Mass
-      value: 0.08
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 54532619442021164, guid: 29229a5b71a26b442be164e5effd9f02,
         type: 2}
@@ -6330,7 +6269,7 @@ Prefab:
     - target: {fileID: 54532619442021164, guid: 29229a5b71a26b442be164e5effd9f02,
         type: 2}
       propertyPath: m_Drag
-      value: 0.0001
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1680545591677980, guid: 29229a5b71a26b442be164e5effd9f02, type: 2}
       propertyPath: m_TagString

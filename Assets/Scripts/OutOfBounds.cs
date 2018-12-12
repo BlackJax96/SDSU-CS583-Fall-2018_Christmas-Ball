@@ -3,23 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class OutOfBounds : MonoBehaviour {
-
+public class OutOfBounds : MonoBehaviour
+{
     private GameObject ballObject;
-    private string currentScene;
+    private string targetScene;
     public float yValueToRestart;
-   
+    public string sceneToLoad;
+
     void Start()
     {
         ballObject = GameObject.FindGameObjectWithTag("PlayerBall");
-        currentScene = SceneManager.GetActiveScene().name;
+        if (string.IsNullOrWhiteSpace(sceneToLoad))
+            targetScene = SceneManager.GetActiveScene().name;
+        else
+            targetScene = sceneToLoad;
     }
 
     void Update()
     {
         if(ballObject.transform.position.y < yValueToRestart)
         {
-            SceneManager.LoadScene(currentScene);
+            SceneManager.LoadScene(targetScene);
         }
     }
 }
