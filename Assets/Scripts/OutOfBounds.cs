@@ -21,8 +21,9 @@ public class OutOfBounds : MonoBehaviour
 
     void Update()
     {
-        if(ballObject.transform.position.y < yValueToRestart)
+        if (ballObject.transform.position.y < yValueToRestart)
         {
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene(targetScene);
         }
     }

@@ -8,12 +8,14 @@ public class GrabCollectables : MonoBehaviour
     public float amplitude = 0.2f;
     public float frequency = 0.4f;
     private float time = 0.0f;
+    private float baseRotateTime = 0.0f;
 
     private bool grabbed = false;
     
     void Start()
     {
-
+        time = Random.value;
+        transform.RotateAround(transform.position, transform.parent.up, Random.value * 360.0f);
     }
 	
 	void Update()
@@ -23,8 +25,6 @@ public class GrabCollectables : MonoBehaviour
         transform.RotateAround(transform.position, transform.parent.up, Time.deltaTime * spinSpeed); // rotate around a vertical axis
 
         time += Time.deltaTime;
-        //if (time > 1.0f)
-        //    time -= 1.0f;
         
         transform.position = Vector3.Lerp(
             transform.parent.position - transform.parent.up * (heightOffset * 0.5f),

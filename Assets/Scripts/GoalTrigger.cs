@@ -69,9 +69,9 @@ public class GoalTrigger : MonoBehaviour
                     return;
                 }
                 int integerSec = (int)Math.Floor(_countdownSeconds);
-                float mins = integerSec / 60.0f;
+                float mins = integerSec / 60;
                 float sec = integerSec % 60;
-                _countdownText.text = string.Format("{0:00}:{1:00}", mins, sec);
+                _countdownText.text = mins.ToString("00") + ":" + sec.ToString("00");
             }
         }
         else
