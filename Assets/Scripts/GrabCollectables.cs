@@ -8,6 +8,8 @@ public class GrabCollectables : MonoBehaviour
     public float amplitude = 0.2f;
     public float frequency = 0.4f;
     private float time = 0.0f;
+
+    private bool grabbed = false;
     
     void Start()
     {
@@ -32,10 +34,15 @@ public class GrabCollectables : MonoBehaviour
     
     void OnTriggerEnter(Collider impact)
     {
-        if (impact.gameObject.tag.Equals("PlayerBall"))
+        if (!grabbed && impact.gameObject.tag.Equals("PlayerBall"))
         {
+            grabbed = true;
             PresentCounter.presentNum += 1;
-            Destroy(gameObject);
+            AudioSource sound = GetComponent<AudioSource>();
+            sound.Play();
+            Renderer r = GetComponent<Renderer>();
+            r.enabled = false;
+            Destroy(gameObject, 1.0f);
         }
     }
 }
