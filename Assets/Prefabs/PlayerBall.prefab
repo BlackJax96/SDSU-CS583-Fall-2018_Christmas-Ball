@@ -192,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _velocityUpdateThreshold: 0.2
   _rotationSlerpSpeed: 0.67
+  _stageControllerObject: {fileID: 0}
 --- !u!135 &135856918331237406
 SphereCollider:
   m_ObjectHideFlags: 1
